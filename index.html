@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="ImageApp">
+<head>
+    <title>AngularJS:YouTube Show Case</title>
+	<link rel="stylesheet" href="./styles/style.css">
+    <script type="text/javascript"
+            src="../bower_components/angular/angular.min.js"></script>
+    <script type="application/javascript" src="controllers/app.js"></script>
+</head>
+<body>
+<div ng-app="ImageApp" class="w3-container w3-center">
+    <div class="w3-row-padding w3-margin-top" ng-controller="ImageController">
+        <input class="w3-input w3-border"
+               ng-model="searchValue"
+               placeholder="Search here.." ng-keyup="searchBox()"/>
+        <div ng-show="cards.length ==0">
+            Loading...
+        </div>
+        <div class="w3-third 3-third w3-animate-left"
+             ng-repeat="item in cards">
+            <div class="w3-card-4">
+                <div class="item-class" >
+                    <h4 class="card-header w3-blue">
+                        {{item.title}}
+                    </h4>
+                    <img class="w3-border w3-padding"
+                         style="z-index:-10;max-height: 180px;max-width: 440px;" ng-src="{{item.thumbnails.high.url}}" />
+                    <h4 class="card-header w3-green">
+                        {{item.description}}
+                    </h4>
+                    <div style="margin: 10%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
